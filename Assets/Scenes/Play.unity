@@ -176,6 +176,8 @@ MonoBehaviour:
   wallPrefab: {fileID: 1542330817563448, guid: 10499988b2eb84eb98e45bf37a4a746f, type: 3}
   ceilingPrefab: {fileID: 1607963608716930, guid: 283345005eeac4a449c0e377b9cc264f,
     type: 3}
+  bottomFallFloor: {fileID: 2880364555011097759, guid: df426fa4254de924a8599e6cd1e327c7,
+    type: 3}
   characterController: {fileID: 1286802624}
   floorParent: {fileID: 328187320}
   wallsParent: {fileID: 1229837569}

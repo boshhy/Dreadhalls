@@ -9,6 +9,7 @@ public class LevelGenerator : MonoBehaviour {
 	public GameObject floorPrefab;
 	public GameObject wallPrefab;
 	public GameObject ceilingPrefab;
+	public GameObject bottomFallFloor;
 
 	public GameObject characterController;
 
@@ -43,7 +44,7 @@ public class LevelGenerator : MonoBehaviour {
 
 		// initialize map 2D array
 		mapData = GenerateMazeData();
-
+		
 		// create actual maze blocks from maze boolean data
 		for (int z = 0; z < mazeSize; z++) {
 			for (int x = 0; x < mazeSize; x++) {
@@ -65,6 +66,14 @@ public class LevelGenerator : MonoBehaviour {
 					characterPlaced = true;
 				}
 				else if (createHole == 1 && numOfHoles <= 3){
+					for (int i = 1; i <= 5; i++){
+						CreateChildPrefab(wallPrefab, wallsParent, x-1, -i, z);
+						CreateChildPrefab(wallPrefab, wallsParent, x+1, -i, z);
+						CreateChildPrefab(wallPrefab, wallsParent, x, -i, z-1);
+						CreateChildPrefab(wallPrefab, wallsParent, x, -i, z+1);
+					};
+
+					CreateChildPrefab(bottomFallFloor, floorParent, x, -6, z);
 					numOfHoles += 1;
 				}
 				else
@@ -135,5 +144,8 @@ public class LevelGenerator : MonoBehaviour {
 	void CreateChildPrefab(GameObject prefab, GameObject parent, int x, int y, int z) {
 		var myPrefab = Instantiate(prefab, new Vector3(x, y, z), Quaternion.identity);
 		myPrefab.transform.parent = parent.transform;
+		if (myPrefab.tag == "floorKill") {
+			myPrefab.transform.Rotate(-90,0, 0);
+		}
 	}
 }

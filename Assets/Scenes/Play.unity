@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.18022832, g: 0.21698111, b: 0.13612494, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.36
@@ -179,7 +179,7 @@ MonoBehaviour:
   characterController: {fileID: 1286802624}
   floorParent: {fileID: 328187320}
   wallsParent: {fileID: 1229837569}
-  generateRoof: 0
+  generateRoof: 1
   tilesToRemove: 350
   mazeSize: 30
   pickup: {fileID: 100000, guid: be400c8265d9c4977800d48e9650f26e, type: 3}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 748641242}
   m_Layer: 0
   m_Name: WhisperSource
-  m_TagString: Untagged
+  m_TagString: WhisperSource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -580,6 +580,10 @@ PrefabInstance:
     - target: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: BypassListenerEffects
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_WalkSpeed

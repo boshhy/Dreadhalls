@@ -15,7 +15,7 @@ public class GameOver : MonoBehaviour
     void Update()
     {
         if (transform.position.y < -4){
-            //gameObject.GetComponent<Transform>();
+            Destroy(GameObject.FindWithTag("WhisperSource"));
             SceneManager.LoadScene("GameOver");
         }
     }

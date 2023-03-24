@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-
-public class BackToTitle : MonoBehaviour
+public class LevelCompleted : MonoBehaviour
 {
+    int currLevel;
+    public Text myText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,10 +16,8 @@ public class BackToTitle : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if (Input.GetAxis("Submit") == 1) {
-            LevelGenerator.level = 0;
-			SceneManager.LoadScene("Title");
-		}
+    {   
+        currLevel = LevelGenerator.level;
+        myText.text = "You made it to level: " + currLevel.ToString();
     }
 }

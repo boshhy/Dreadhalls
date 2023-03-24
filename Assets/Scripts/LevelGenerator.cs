@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour {
 
+	public static int level = 0;
+
 	public GameObject floorPrefab;
 	public GameObject wallPrefab;
 	public GameObject ceilingPrefab;
@@ -37,6 +39,7 @@ public class LevelGenerator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		level += 1;
 
 		// initialize map 2D array
 		mapData = GenerateMazeData();

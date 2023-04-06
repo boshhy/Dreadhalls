@@ -13,7 +13,9 @@ public class GameOver : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+        // If player falls below -4 on the y position destroy the audio source
+        // and go to game over scene
         if (transform.position.y < -4){
             Destroy(GameObject.FindWithTag("WhisperSource"));
             SceneManager.LoadScene("GameOver");

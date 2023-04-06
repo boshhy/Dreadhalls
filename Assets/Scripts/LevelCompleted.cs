@@ -16,7 +16,8 @@ public class LevelCompleted : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
+    {      
+        // get current level and display level on Gameover scene
         currLevel = LevelGenerator.level;
         myText.text = "You made it to level: " + currLevel.ToString();
     }

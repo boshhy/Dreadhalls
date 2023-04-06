@@ -17,6 +17,7 @@ public class LevelUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
+        // Display what level use is currently on 
         currLevel = LevelGenerator.level;
         myText.text = "Level: " + currLevel.ToString();
     }

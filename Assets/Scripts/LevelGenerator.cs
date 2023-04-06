@@ -50,6 +50,7 @@ public class LevelGenerator : MonoBehaviour {
 			for (int x = 0; x < mazeSize; x++) {
 				int createHole = (int)(Random.Range(1, tilesToRemove / 4));
 				if (mapData[z, x]) {
+					// Add floor and walls
 					CreateChildPrefab(floorPrefab, floorParent, x, 0, z);
 					CreateChildPrefab(wallPrefab, wallsParent, x, 1, z);
 					CreateChildPrefab(wallPrefab, wallsParent, x, 2, z);
@@ -65,14 +66,16 @@ public class LevelGenerator : MonoBehaviour {
 					// flag as placed so we never consider placing again
 					characterPlaced = true;
 				}
+				// If we are making a hole and the number of holes is still 3 or less add a 'hole'
 				else if (createHole == 1 && numOfHoles <= 3){
 					for (int i = 1; i <= 5; i++){
+						// Add the walls for the hole
 						CreateChildPrefab(wallPrefab, wallsParent, x-1, -i, z);
 						CreateChildPrefab(wallPrefab, wallsParent, x+1, -i, z);
 						CreateChildPrefab(wallPrefab, wallsParent, x, -i, z-1);
 						CreateChildPrefab(wallPrefab, wallsParent, x, -i, z+1);
 					};
-
+					// Add the floor of the hole
 					CreateChildPrefab(bottomFallFloor, floorParent, x, -6, z);
 					numOfHoles += 1;
 				}
